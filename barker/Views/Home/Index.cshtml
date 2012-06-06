@@ -1,0 +1,80 @@
+﻿@model IEnumerable<barker.data.Bark>
+
+@{
+    ViewBag.Title = "Index";    
+}
+
+
+@using (Html.BeginForm("Bark", "Barks"))
+{
+    <div id="new_bark_form">
+        <h3 style="float: left;">What are you doing?</h3>
+        <h3 id="char_count">140</h3>
+        @Html.TextArea("Message")
+        <div id="latest_message">
+            <strong>Latest: </strong>@ViewBag.LastMessage.Message 
+            <abbr class="timeago" title="@ViewBag.LastMessage.CreateAt">@ViewBag.LastMessage.CreateAt</abbr>
+        </div>
+        <div id="submit_button_container">
+            <input type="submit" class="button" value="Bark" />
+        </div>
+        <div class="clear"></div>
+        
+    </div>
+}
+
+
+@{
+    Html.RenderPartial("_bark_list",Model);
+}
+
+
+@section SideSection
+{
+    <div id="my_info_container">        
+        @Html.Gravatar(ViewBag.CurrentUser.Email as string, 30)
+        <div class="contents">
+            @ViewBag.CurrentUser.FullName<br/>
+            <span class="small">@ViewBag.CurrentUser.Barks.Count Barks</span>
+        </div>
+        <br class="clear"/>
+    </div>
+    
+    <div id="following_followers_container">        
+        <h4>@Html.ActionLink(ViewBag.CurrentUser.Friends.Count + " following" as string, "Following")</h4>
+        <h4>@ViewBag.Followers.Count followers</h4>
+    </div>
+    
+    
+    <div id="thumbnail_container">
+        <h4>Followers</h4>
+        @foreach (var friend in ViewBag.CurrentUser.Friends)
+        {
+            <a href="" title="@(friend.Friend != null ? friend.Friend.Email : "Empty")">
+                @Html.Gravatar((friend.Friend!=null ? friend.Friend.Email : "")as string ,30)
+            </a>
+        }
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        jQuery("abbr.timeago").timeago();
+
+        $('#Message').keyup(function () {            
+            var contentLeangth = $(this).val().length;
+            var remaining = 140 - contentLeangth;
+            $('#char_count').html(remaining);
+            if (remaining < 21 && remaining > 9) {
+                $('#char_count').addClass('darker_red');
+                $('#char_count').removeClass('red');
+            } else if (remaining <= 9) {
+                $('#char_count').addClass('red');
+                $('#char_count').removeClass('darker_red');
+            } else {
+                $('#char_count').removeClass('darker_red').removeClass('red');
+            }
+
+        });
+    });
+</script>
