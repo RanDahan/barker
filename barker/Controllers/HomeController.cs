@@ -78,5 +78,17 @@ namespace barker.Controllers
             List<User> user = userRepo.GetUserFriends(User.Identity.Name);            
             return View(user);
         }
+
+
+        public  ActionResult UserDetails()
+        {
+            var userRepo = new UserRepository(new DataContext());
+             User user = userRepo.GetUserByName(User.Identity.Name);
+             List<UserFriend> friends = userRepo.FollowersCount(user);
+
+            UserDetailsModel model = new UserDetailsModel { User = user, Followers = friends };
+
+            return PartialView("_SideContents", model);
+        }
     }
 }

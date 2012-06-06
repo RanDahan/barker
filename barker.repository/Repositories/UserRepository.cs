@@ -58,7 +58,7 @@ namespace barker.repository.Repositories
 
         public  List<UserFriend> FollowersCount(User user)
         {            
-            return context.Friends.Where(f => f.FriendId == user.ID).ToList();
+            return context.Friends.Include("User").Where(f => f.FriendId == user.ID).ToList();
         }
 
         public void Dispose()
