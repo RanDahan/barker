@@ -29,34 +29,6 @@
 }
 
 
-@section SideSection
-{
-    <div id="my_info_container">        
-        @Html.Gravatar(ViewBag.CurrentUser.Email as string, 30)
-        <div class="contents">
-            @ViewBag.CurrentUser.FullName<br/>
-            <span class="small">@ViewBag.CurrentUser.Barks.Count Barks</span>
-        </div>
-        <br class="clear"/>
-    </div>
-    
-    <div id="following_followers_container">        
-        <h4>@Html.ActionLink(ViewBag.CurrentUser.Friends.Count + " following" as string, "Following")</h4>
-        <h4>@ViewBag.Followers.Count followers</h4>
-    </div>
-    
-    
-    <div id="thumbnail_container">
-        <h4>Followers</h4>
-        @foreach (var friend in ViewBag.CurrentUser.Friends)
-        {
-            <a href="" title="@(friend.Friend != null ? friend.Friend.Email : "Empty")">
-                @Html.Gravatar((friend.Friend!=null ? friend.Friend.Email : "")as string ,30)
-            </a>
-        }
-    </div>
-}
-
 <script type="text/javascript">
     $(function () {
         jQuery("abbr.timeago").timeago();
