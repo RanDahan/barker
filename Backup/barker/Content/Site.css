@@ -1,0 +1,280 @@
+body
+{
+    font-size: 0.75em;
+    font-family: "Helvetica Neue" , Arial, sans-serif;
+    color: #232323;    
+    background: #C0DEED url(/images/bg.png) top left repeat-x;
+}
+
+header, footer, nav, section
+{
+    display: block;
+}
+
+a 
+{    
+    text-decoration: none;
+    color: #2276BB;
+    font-weight: bold;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea
+{
+    min-height: 75px;
+}
+
+.editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field
+{
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #f00;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+#header {
+    margin: 0 auto;
+    width: 755px;
+}
+
+#header #logo {
+    width: 280px;
+    border: 0;
+    float: left
+}
+
+#header #logo img {
+    width: 280px;
+}
+
+#header #top_links_container {
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    width: auto;
+    float: right;
+    margin-top: 35px;
+}
+
+#container
+{
+    width: 715px;
+    border: 1px solid #c9c9c9;
+    background-color: #fff;
+    margin: 0 auto 25px auto;
+    padding: 20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+#main {
+    width: 540px;
+    float: left;    
+}
+
+#side 
+{
+    width: 160px;
+    float: right;    
+}
+.clear
+{
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+
+input.button
+{
+    background: url(/images/round-btn.png) no-repeat;
+    width: 118px;
+    height: 32px;
+    border: 0;
+    font-size: 120%;
+    color: #666;
+    font-weight: bold;
+}
+
+/* BARK FORM */
+
+#new_bark_form
+{
+    width: 521px;
+    margin-bottom: 25px;
+}
+
+#new_bark_form textarea
+{
+    width: 521px;
+    height: 44px;
+}
+
+#new_bark_form h3
+{
+    font-weight: normal;
+    font-size: 150%;
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+}
+
+#new_bark_form #latest_message
+{
+    color: #666;
+    font-size: 90%;
+    padding-top: 3px;
+    float: left;
+    width: 360px;
+}
+
+#new_bark_form #submit_button_container
+{
+    float: right;
+    width: 160px;
+    text-align: right;
+}
+
+/* BARKS LIST */
+
+#barks_list
+{
+    margin: 0;
+    padding: 0;
+    width: 521px;
+}
+
+#barks_list li
+{
+    list-style: none;
+    padding: 10px 0px;
+    margin: 0;
+    background-color: #fff;
+    border-bottom: 1px #D2DADA dashed;
+}
+
+#barks_list li.first
+{
+    border-top: 1px #D2DADA dashed;
+}
+
+#barks_list li:hover
+{
+    background-color: #F7F7F7;
+}
+
+#barks_list li img
+{
+    float: left;
+}
+
+#barks_list li div.bark_message_container
+{
+    float: left;
+    margin-left: 10px;
+    width: 450px;
+}
+
+#barks_list li div.bark_message_container a
+{
+    text-decoration: none;
+    color: #2276bb;
+    font-weight: bold;
+}
+
+#barks_list li div.bark_message_container div.time_ago
+{
+    font-size: 90%;
+    color: #9c9c9c;
+    padding-top: 3px;
+}
+
+#char_count
+{
+    float: right;
+    font-weight: bold !important;
+    color: #aaa;
+    font-size: 23px !important;
+}
+
+h3.darker_red
+{
+    color: #5C0002 !important;
+}
+
+h3.red
+{
+    color: #D40D12 !important;
+}
+
+#my_info_container img {
+    float: left;    
+}
+
+#my_info_container .contents 
+{
+    font-family: Helvetica Neue, Helvetica, sans-serif;
+    font-weight: bold;
+    float: left;
+    padding-left: 5px;
+    color: #333;
+}
+
+#my_info_container .contents .small {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#following_followers_container, #thumbnail_container {
+    margin-top: 15px;
+}
+
+#following_followers_container h4 , #thumbnail_container h4{
+    margin: 2px 0px;
+}

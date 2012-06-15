@@ -1,0 +1,25 @@
+﻿@model List<barker.data.User>
+
+@{
+    ViewBag.Title = "Following";
+}
+
+<ul id="barks_list">        
+    @foreach(var item in Model)
+    {        
+        <li @if (Model.First() == item)
+            {
+                @:class="first"
+            }>
+            @Html.Gravatar(item.Email , 50)            
+            <div class="bark_message_container">
+                @Html.ActionLink(item.Username, "Show", "Home", new { id = item.Username },null)                
+                @item.Barks.Last().Message
+                <div class="time_ago">
+                    <abbr class="timeago" title="@item.Barks.Last().CreateAt">@item.Barks.Last().CreateAt</abbr>                    
+                </div>
+            </div>           
+            <div class="clear"></div>
+        </li>
+    }    
+</ul>

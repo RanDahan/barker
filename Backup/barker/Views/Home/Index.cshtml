@@ -1,0 +1,52 @@
+﻿@model IEnumerable<barker.data.Bark>
+
+@{
+    ViewBag.Title = "Index";    
+}
+
+
+@using (Html.BeginForm("Bark", "Barks"))
+{
+    <div id="new_bark_form">
+        <h3 style="float: left;">What are you doing?</h3>
+        <h3 id="char_count">140</h3>
+        @Html.TextArea("Message")
+        <div id="latest_message">
+            <strong>Latest: </strong>@ViewBag.LastMessage.Message 
+            <abbr class="timeago" title="@ViewBag.LastMessage.CreateAt">@ViewBag.LastMessage.CreateAt</abbr>
+        </div>
+        <div id="submit_button_container">
+            <input type="submit" class="button" value="Bark" />
+        </div>
+        <div class="clear"></div>
+        
+    </div>
+}
+
+
+@{
+    Html.RenderPartial("_bark_list",Model);
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        jQuery("abbr.timeago").timeago();
+
+        $('#Message').keyup(function () {            
+            var contentLeangth = $(this).val().length;
+            var remaining = 140 - contentLeangth;
+            $('#char_count').html(remaining);
+            if (remaining < 21 && remaining > 9) {
+                $('#char_count').addClass('darker_red');
+                $('#char_count').removeClass('red');
+            } else if (remaining <= 9) {
+                $('#char_count').addClass('red');
+                $('#char_count').removeClass('darker_red');
+            } else {
+                $('#char_count').removeClass('darker_red').removeClass('red');
+            }
+
+        });
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<barker.data.Bark>
+@{
+    ViewBag.Title = "Show";
+}
+
+<h1 style="vertical-align: top;">
+    @Html.Gravatar(ViewBag.CurrentUser.Email as string, 100)
+    @ViewBag.CurrentUser.FullName</h1>
+
+@using (Html.BeginForm("TaggleFollow", "Home", new { id = ViewBag.CurrentUser.ID }))
+{
+               
+    <input type="submit" class="button" value="@(ViewBag.IsFriends ? "Following" : "Not Following")" />   
+}
+@{
+    Html.RenderPartial("_bark_list", Model);
+}
