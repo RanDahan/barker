@@ -7,7 +7,7 @@ written in ASP.NET MVC 3 for learning propose.
 I use the '[Creating a Twitter Clone in Rails](http://teachmetocode.com/screencasts/creating-a-twitter-clone-in-rails-part-1/).' Screencast  by ERIC BERRY 
 
 
-## Getting started
+## Goals
 
     - Create my first full MVC site.
     - Try Code first approach.
