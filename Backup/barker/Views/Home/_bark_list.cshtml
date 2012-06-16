@@ -1,0 +1,22 @@
+﻿@model IEnumerable<barker.data.Bark>
+
+<ul id="barks_list">        
+    @foreach(var item in Model)
+    {        
+        <li @if(Model.First()==item)
+            {
+                @:class="first"
+            }>
+            @Html.Gravatar(item.User.Email , 50)            
+            <div class="bark_message_container">
+                @Html.ActionLink(item.User.Username, "Show", "Home", new { id = item.User.Username },null)                
+                @item.Message
+                <div class="time_ago">
+                    <abbr class="timeago" title="@item.CreateAt">@item.CreateAt</abbr>                    
+                </div>
+            </div>           
+            <div class="clear"></div>
+        </li>
+    }    
+</ul>
+

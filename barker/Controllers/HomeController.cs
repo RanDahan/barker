@@ -90,5 +90,14 @@ namespace barker.Controllers
 
             return PartialView("_SideContents", model);
         }
+
+
+        [Authorize]
+        public ActionResult ViewBagSet()
+        {
+            ViewBag.Message = "Test this";
+
+            return View();
+        }
     }
 }

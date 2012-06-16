@@ -1,0 +1,26 @@
+﻿@model barker.Controllers.UserDetailsModel
+
+<div id="my_info_container">        
+        @Html.Gravatar(@Model.User.Email as string, 30)
+        <div class="contents">
+            @Model.User.FullName<br/>
+            <span class="small">@Model.User.Barks.Count Barks</span>
+        </div>
+        <br class="clear"/>
+    </div>
+    
+    <div id="following_followers_container">        
+        <h4>@Html.ActionLink(Model.User.Friends.Count + " following" as string, "Following")</h4>
+        <h4>@Model.Followers.Count followers</h4>
+    </div>
+    
+    
+    <div id="thumbnail_container">
+        <h4>Followers</h4>
+        @foreach (var friend in Model.Followers)
+        {
+            <a href="" title="@(friend.User.Email)">
+                @Html.Gravatar(friend.User.Email as string ,30)
+            </a>
+        }
+    </div>
